@@ -16,5 +16,6 @@ before_install:
   - docker run --rm --privileged docker/binfmt:a7996909642ee92942dcd6cff44b9b95f08dad64
 install:
   - docker buildx create --use --name xbuild
+  - docker buildx inspect --bootstrap
 script: bash build.sh
 
