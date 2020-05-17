@@ -41,7 +41,7 @@ do
      fi
      S6_URL="https://github.com/just-containers/s6-overlay/releases/download/v${S6_VER}/s6-overlay-${_ARCH}.tar.gz"
      echo -e "S6-OVERLAY: $S6_URL \n"
-     wget -c -nv ${S6_URL} -O ${ARCH}/rootfs.tar.gz
+     wget -c -nv ${S6_URL} -O ${ARCH}/s6-overlay.tar.gz
 
 done
 
@@ -56,7 +56,7 @@ docker buildx build \
 	--build-arg VERSION="${ALPINE_VER}" \
 	--build-arg VCS_REF="$(git rev-parse --short HEAD)" \
 	--build-arg BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
-	--platform echo ${PLATFORMS[@]} | sed 's/ /,/g' \
+	--platform "$( echo ${PLATFORMS[@]} | sed 's/ /,/g')" \
 	-t ${TAG}:${ALPINE_VER} \
 	--push \
 	.
