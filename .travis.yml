@@ -3,10 +3,10 @@ sudo: required
 language: minimal
 env:
   global:
-    - ALPINE_VERSION=""
+    - ALPINE_VERSION="3.11.6"
     - S6_VERSION=""
-    - IMG_NAME=""
-    - IMG_TAG=""
+    - IMG_NAME="xpecex/alpine-s6"
+    - IMG_TAG="$ALPINE_VERSION"
     - DOCKER_CLI_EXPERIMENTAL="enabled"
 before_install:
   - sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
