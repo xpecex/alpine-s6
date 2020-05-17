@@ -2,6 +2,8 @@
 
 # List of Archs
 PLATFORMS=("linux/386" "linux/amd64" "linux/arm/v6" "linux/arm/v7" "linux/arm64" "linux/aarch64" "linux/ppc64le")
+PLATFORM="$( echo ${PLATFORMS[@]} | sed 's/ /,/g')"
+echo $PLATFORM
 
 # ALPINE VERSION
 LATEST_STABLE="$(curl -sL https://alpinelinux.org/downloads/ | sed -n 's:.*<strong>\(.*\)</strong>.*:\1:p' )"
@@ -56,7 +58,7 @@ docker buildx build \
 	--build-arg VERSION="${ALPINE_VER}" \
 	--build-arg VCS_REF="$(git rev-parse --short HEAD)" \
 	--build-arg BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
-	--platform "$( echo ${PLATFORMS[@]} | sed 's/ /,/g')" \
+	--platform="$PLATFORM" \
 	-t ${TAG}:${ALPINE_VER} \
 	--push \
 	.
@@ -65,7 +67,7 @@ if [ "$BRANCH" = "master" ]; then
 	docker buildx build \
         --build-arg VERSION="${ALPINE_VER}" \
         --build-arg VCS_REF="$(git rev-parse --short HEAD)" \                                                                                                                  --build-arg BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
-        --platform "$( echo ${PLATFORMS[@]} | sed 's/ /,/g')" \
+        --platform="$PLATFORM" \
         -t ${TAG}:latest \
         --push \
         .
