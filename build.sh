@@ -4,11 +4,6 @@
 PLATFORMS=("linux/386" "linux/amd64" "linux/arm/v6" "linux/arm/v7" "linux/arm64" "linux/aarch64" "linux/ppc64le")
 
 # ALPINE VERSION
-BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-echo "BRANCH: $BRANCH"
-if [ "$BRANCH" != "master" ]; then
-	ALPINE_VERSION="$BRANCH"
-fi
 LATEST_STABLE="$(curl -sL https://alpinelinux.org/downloads/ | sed -n 's:.*<strong>\(.*\)</strong>.*:\1:p' )"
 ALPINE_VER="${ALPINE_VERSION:-$LATEST_STABLE}"
 
@@ -61,7 +56,7 @@ docker buildx build \
 	--build-arg VERSION="${ALPINE_VER}" \
 	--build-arg VCS_REF="$(git rev-parse --short HEAD)" \
 	--build-arg BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
-	--platform "$( echo ${PLATFORMS[@]} | sed 's/ /,/g')" \
+	--platform echo ${PLATFORMS[@]} | sed 's/ /,/g' \
 	-t ${TAG}:${ALPINE_VER} \
 	--push \
 	.
