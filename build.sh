@@ -53,7 +53,7 @@ TAG="${IMG_TAG:-$ALPINE_VER}"
 echo "BUILD AND PUSH TO DOCKER"
 echo "IMAGE: ${NAME}:${TAG}"
 # DOCKER LOGIN
-echo $DOCKER_PASSWORD | docker login -u xpecex --password-stdin &> /dev/null
+echo $DOCKER_PASSWORD | docker login -u "xpecex" --password-stdin &> /dev/null
 docker buildx build \
 	--build-arg VERSION="${ALPINE_VER}" \
 	--build-arg VCS_REF="$(git rev-parse --short HEAD)" \
