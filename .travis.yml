@@ -1,0 +1,20 @@
+dist: bionic
+sudo: required
+env:
+  global:
+    - ALPINE_VERSION=""
+    - S6_VERSION=""
+    - IMG_NAME=""
+    - IMG_TAG=""
+    - DOCKER_CLI_EXPERIMENTAL="enabled"
+before_install:
+  - apt install -y apt-transport-https ca-certificates curl software-properties-common
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add 
+  - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+  - apt update
+  - apt install -y docker-ce
+  - docker run --rm --privileged docker/binfmt:a7996909642ee92942dcd6cff44b9b95f08dad64
+install:
+  - docker buildx create --use --name xbuild
+script: bash build.sh
+
