@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # List of Archs
-PLATFORMS=("linux/386" "linux/amd64" "linux/arm/v6" "linux/arm/v7" "linux/arm64" "linux/aarch64" "linux/ppc64le")
+PLATFORMS=("linux/386" "linux/amd64" "linux/arm/v6" "linux/arm/v7" "linux/arm64" "linux/ppc64le")
 PLATFORM="$( echo ${PLATFORMS[@]} | sed 's/ /,/g')"
 echo $PLATFORM
 
