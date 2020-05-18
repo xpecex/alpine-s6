@@ -11,7 +11,7 @@ ALPINE_VER="${ALPINE_VERSION:-$LATEST_STABLE}"
 # S6-OVERLAY
 S6_VER="${S6_VERSION:-$(curl -s https://github.com/just-containers/s6-overlay/releases/latest | cut -d '/' -f 8 | cut -d '"' -f 1 | cut -d 'v' -f 2)}"
 
-for ARCH in "${PLATFORMS[@]}" 
+for ARCH in "${PLATFORMS[@]}"
 do
     # Create dir for rootfs and s6-overlay files
     echo "Creating directory: $ARCH"
@@ -52,24 +52,23 @@ TAG="${IMG_TAG:-$ALPINE_VER}"
 echo "BUILD AND PUSH TO DOCKER"
 echo "IMAGE: ${NAME}:${TAG}"
 
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
 docker buildx build \
         --push \
-	--output=type=registry \
 	--build-arg VERSION="${ALPINE_VER}" \
 	--build-arg VCS_REF="$(git rev-parse --short HEAD)" \
 	--build-arg BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
 	--platform="$PLATFORM" \
-	-t "docker.io/${TAG}:${ALPINE_VER%.*}" \
+	-t "${NAME}:${TAG}" \
 	.
 
 if [ "$BRANCH" = "master" ]; then
 	docker buildx build \
 	--push \
-	--output=type=registry \
 	--build-arg VERSION="${ALPINE_VER}" \
         --build-arg VCS_REF="$(git rev-parse --short HEAD)" \                                                                                                                  --build-arg BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
         --platform="$PLATFORM" \
-        -t "docker.io/${TAG}:latest" \
+        -t "${NAME}:latest" \
         .
 fi
 
