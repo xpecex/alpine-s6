@@ -6,7 +6,7 @@ PLATFORM="$( echo ${PLATFORMS[@]} | sed 's/ /,/g')"
 
 # GET BRANCH
 BRANCH="$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')"
-if [[ "$BRANCH" != "master"] && [ ! -z "$BRANCH" ]]; then
+if [ "$BRANCH" != "master"] && [ ! -z "$BRANCH" ]; then
 	ALPINE_VERSION="$BRANCH"
 fi
 # ALPINE VERSION
