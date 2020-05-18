@@ -59,7 +59,7 @@ docker buildx build \
 	--build-arg VCS_REF="$(git rev-parse --short HEAD)" \
 	--build-arg BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
 	--platform="$PLATFORM" \
-	-t "docker.io/${TAG}:${ALPINE_VER}" \
+	-t "docker.io/${TAG}:${ALPINE_VER%.*}" \
 	.
 
 if [ "$BRANCH" = "master" ]; then
