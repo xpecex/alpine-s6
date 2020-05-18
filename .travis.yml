@@ -3,7 +3,7 @@ sudo: required
 language: minimal
 env:
   global:
-    - ALPINE_VERSION="3.11.6"
+    - ALPINE_VERSION="3.11.5"
     - S6_VERSION=""
     - IMG_NAME="xpecex/alpine-s6"
     - DOCKER_CLI_EXPERIMENTAL="enabled"

@@ -24,5 +24,6 @@ See more: [github.com/just-containers/s6-overlay](https://github.com/just-contai
 # How to use
 ###### Tag's:
 `3.11.6` - Alpine Linux 3.11.6
+`3.11.5` - Alpine Linux 3.11.5
 
 `docker run -it xpecex/alpine-s6:<tag>`
