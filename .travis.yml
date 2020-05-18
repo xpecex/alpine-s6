@@ -17,5 +17,7 @@ before_install:
 install:
   - docker buildx create --use --name xbuild
   - docker buildx inspect --bootstrap
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
+  - docker info
 script: bash build.sh
 

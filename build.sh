@@ -3,7 +3,6 @@
 # List of Archs
 PLATFORMS=("linux/386" "linux/amd64" "linux/arm/v6" "linux/arm/v7" "linux/arm64" "linux/ppc64le")
 PLATFORM="$( echo ${PLATFORMS[@]} | sed 's/ /,/g')"
-echo $PLATFORM
 
 # ALPINE VERSION
 LATEST_STABLE="$(curl -sL https://alpinelinux.org/downloads/ | sed -n 's:.*<strong>\(.*\)</strong>.*:\1:p' )"
@@ -52,24 +51,25 @@ NAME="${IMG_NAME:-$(git config --get remote.origin.url | sed 's/.*\/\([^ ]*\/[^.
 TAG="${IMG_TAG:-$ALPINE_VER}"
 echo "BUILD AND PUSH TO DOCKER"
 echo "IMAGE: ${NAME}:${TAG}"
-# DOCKER LOGIN
-echo $DOCKER_PASSWORD | docker login -u "xpecex" --password-stdin &> /dev/null
+
 docker buildx build \
+        --push \
+	--output=type=registry \
 	--build-arg VERSION="${ALPINE_VER}" \
 	--build-arg VCS_REF="$(git rev-parse --short HEAD)" \
 	--build-arg BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
 	--platform="$PLATFORM" \
 	-t ${TAG}:${ALPINE_VER} \
-	--push \
 	.
 
 if [ "$BRANCH" = "master" ]; then
 	docker buildx build \
-        --build-arg VERSION="${ALPINE_VER}" \
+	--push \
+	--output=type=registry \
+	--build-arg VERSION="${ALPINE_VER}" \
         --build-arg VCS_REF="$(git rev-parse --short HEAD)" \                                                                                                                  --build-arg BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
         --platform="$PLATFORM" \
         -t ${TAG}:latest \
-        --push \
         .
 fi
 
