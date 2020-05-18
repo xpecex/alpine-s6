@@ -4,6 +4,11 @@
 PLATFORMS=("linux/386" "linux/amd64" "linux/arm/v6" "linux/arm/v7" "linux/arm64" "linux/ppc64le")
 PLATFORM="$( echo ${PLATFORMS[@]} | sed 's/ /,/g')"
 
+# GET BRANCH
+BRANCH="$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')"
+if [[ "$BRANCH" != "master"] && [ ! -z "$BRANCH" ]]; then
+	ALPINE_VERSION="$BRANCH"
+fi
 # ALPINE VERSION
 LATEST_STABLE="$(curl -sL https://alpinelinux.org/downloads/ | sed -n 's:.*<strong>\(.*\)</strong>.*:\1:p' )"
 ALPINE_VER="${ALPINE_VERSION:-$LATEST_STABLE}"
