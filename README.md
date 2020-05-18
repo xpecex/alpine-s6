@@ -1,5 +1,5 @@
 # ALPINE-S6
-[![](https://images.microbadger.com/badges/image/xpecex/alpine-s6.svg)](https://microbadger.com/images/xpecex/alpine-s6 "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/xpecex/alpine-s6.svg)](https://microbadger.com/images/xpecex/alpine-s6 "Get your own version badge on microbadger.com") [![](https://api.travis-ci.org/xpecex/alpine-s6.svg?branch=master&status=started)](https://travis-ci.org/github/xpecex/alpine-s6)
+[![](https://images.microbadger.com/badges/image/xpecex/alpine-s6.svg)](https://microbadger.com/images/xpecex/alpine-s6 "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/xpecex/alpine-s6.svg)](https://microbadger.com/images/xpecex/alpine-s6 "Get your own version badge on microbadger.com") [![](https://api.travis-ci.org/xpecex/alpine-s6.svg?branch=master)](https://travis-ci.org/github/xpecex/alpine-s6)
 
 ALPINE-S6 is an image created from Alpine Linux Source with S6-Overlay
 
