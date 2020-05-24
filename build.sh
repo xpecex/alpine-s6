@@ -132,6 +132,9 @@ for RELEASE in "${RELEASES[@]}"; do
         fi
 
         # SET S6-OVERLAY DOWNLOAD URL
+        if [ "${_ARCH}" = "x86_64" ]; then
+            _ARCH="amd64"
+        fi
         if [ "${_ARCH}" = "armv7" ]; then
             _ARCH="arm"
         fi

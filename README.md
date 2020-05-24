@@ -25,56 +25,99 @@ See more: [github.com/just-containers/s6-overlay](https://github.com/just-contai
 ##### Tag's:
 
 `3.5.0` - Alpine Linux 3.5.0
+
 >`3.5.1` - Alpine Linux 3.5.1
+
 >`3.5.2` - Alpine Linux 3.5.2
+
 >`3.5.3` - Alpine Linux 3.5.3
 
+
 `3.6.0` - Alpine Linux 3.6.0
+
 >`3.6.1` - Alpine Linux 3.6.1
+
 >`3.6.2` - Alpine Linux 3.6.2
+
 >`3.6.3` - Alpine Linux 3.6.3
+
 >`3.6.4` - Alpine Linux 3.6.4
+
 >`3.6.5` - Alpine Linux 3.6.5
 
+
 `3.7.0` - Alpine Linux 3.7.0
+
 >`3.7.1` - Alpine Linux 3.7.1
+
 >`3.7.2` - Alpine Linux 3.7.2
+
 >`3.7.3` - Alpine Linux 3.7.3
 
+
 `3.8.0` - Alpine Linux 3.8.0
+
 >`3.8.1` - Alpine Linux 3.8.1
+
 >`3.8.2` - Alpine Linux 3.8.2
+
 >`3.8.3` - Alpine Linux 3.8.3
+
 >`3.8.4` - Alpine Linux 3.8.4
+
 >`3.8.5` - Alpine Linux 3.8.5
 
+
 `3.9.0` - Alpine Linux 3.9.0
+
 >`3.9.1` - Alpine Linux 3.9.1
+
 >`3.9.2` - Alpine Linux 3.9.2
+
 >`3.9.3` - Alpine Linux 3.9.3
+
 >`3.9.4` - Alpine Linux 3.9.4
+
 >`3.9.5` - Alpine Linux 3.9.5
+
 >`3.9.6` - Alpine Linux 3.9.6
 
+
 `3.10.0` - Alpine Linux 3.10.0
+
 >`3.10.1` - Alpine Linux 3.10.1
+
 >`3.10.2` - Alpine Linux 3.10.2
+
 >`3.10.3` - Alpine Linux 3.10.3
+
 >`3.10.4` - Alpine Linux 3.10.4
+
 >`3.10.5` - Alpine Linux 3.10.5
 
+
 `3.11.0` - Alpine Linux 3.11.0
+
 >`3.11.1` - Alpine Linux 3.11.1
+
 >`3.11.2` - Alpine Linux 3.11.2
+
 >`3.11.3` - Alpine Linux 3.11.3
+
 >`3.11.4` - Alpine Linux 3.11.4
+
 >`3.11.5` - Alpine Linux 3.11.5
+
 >`3.11.6` - Alpine Linux 3.11.6
+
 
 `3.12.0_rc1` - Alpine Linux 3.12.0_rc1
 
+
 `edge` - Alpine Linux Edge
 
+
 `latest` - Alpine Linux 3.11.6
+
 
 `docker run -it xpecex/alpine-s6:<tag>`
