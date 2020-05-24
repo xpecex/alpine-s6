@@ -9,7 +9,7 @@ ARG VERSION
 
 # Labels
 LABEL org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.description="Alpine Linux with S6-Overlay" \
+      org.label-schema.description="Alpine Linux ${VERSION} with S6-Overlay" \
       org.label-schema.name="xpecex/alpine-s6" \
       org.label-schema.schema-version="1.0" \
       org.label-schema.usage="https://github.com/xpecex/alpine-s6" \
