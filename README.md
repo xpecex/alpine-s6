@@ -111,7 +111,7 @@ See more: [github.com/just-containers/s6-overlay](https://github.com/just-contai
 >`3.11.6` - Alpine Linux 3.11.6
 
 
-`3.12.0_rc1` - Alpine Linux 3.12.0_rc1
+`3.12.0` - Alpine Linux 3.12.0
 
 
 `edge` - Alpine Linux Edge
