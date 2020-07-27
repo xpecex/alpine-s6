@@ -1,5 +1,5 @@
 # BUILD FROM SCRATCH
-FROM --platform=$TARGETPLATFORM scratch AS build
+FROM scratch
 
 # BUILD ARGs
 ARG TARGETPLATFORM

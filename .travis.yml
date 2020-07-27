@@ -1,21 +1,19 @@
-dist: bionic
+dist: xenial
 sudo: required
 language: minimal
 env:
   global:
-    - ALPINE_VERSION="3.11.6"
-    - S6_VERSION=""
-    - IMG_NAME="xpecex/alpine-s6"
+    - S6_VERSION="2.0.0.1"
     - DOCKER_CLI_EXPERIMENTAL="enabled"
 before_install:
-  - sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add 
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-  - sudo apt update
-  - sudo apt install -y docker-ce
-  - docker run --rm --privileged docker/binfmt:a7996909642ee92942dcd6cff44b9b95f08dad64
+  - sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+  - docker run --rm --privileged linuxkit/binfmt:v0.8
 install:
-  - docker buildx create --use --name xbuild
+  - docker buildx create --use --name qemu
   - docker buildx inspect --bootstrap
 script: bash build.sh
 
