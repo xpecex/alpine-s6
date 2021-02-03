@@ -115,11 +115,20 @@ See more: [github.com/just-containers/s6-overlay](https://github.com/just-contai
 
 >`3.12.1` - Alpine Linux 3.12.1
 
+>`3.12.2` - Alpine Linux 3.12.2
+
+>`3.12.3` - Alpine Linux 3.12.3
+
+
+`3.13.0` - Alpine Linux 3.13.0
+
+>`3.13.1` - Alpine Linux 3.13.1
+
 
 `edge` - Alpine Linux Edge
 
 
-`latest` - Alpine Linux 3.12.1
+`latest` - Alpine Linux 3.13.1
 
 
 `docker run -it xpecex/alpine-s6:<tag>`
